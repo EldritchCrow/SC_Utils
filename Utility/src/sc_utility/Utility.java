@@ -12,7 +12,8 @@ public class Utility {
 	
 	private Random rand = new Random();
 	
-	public boolean prob(int p) {
+	
+	public boolean prob(double p) {
 		if(p >= 100) return true;
 		else if(p <= 0) return false;
 		int i = rand.nextInt(100) + 1;
