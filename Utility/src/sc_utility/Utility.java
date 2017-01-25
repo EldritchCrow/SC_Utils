@@ -29,6 +29,11 @@ public class Utility {
 		else return true;
 	}
 	
+	/**
+	 * Randomly selects an object from an array.
+	 * @param args an array to pick from.
+	 * @return a random element from args.
+	 */
 	public Object pick(Object[] args) {
 		int i = rand.nextInt(args.length);
 		return args[i];
