@@ -13,9 +13,13 @@ public class Utility {
 	private Random rand = new Random();
 	
 	/**
-	 * Given a probablility, returns a 
-	 * @param p
-	 * @return
+	 * Randomly returns true with a given probability.
+	 * 
+	 * For example it you call it with an argument of <code>25.0</code> then it will return true 25% of the time.
+	 * Will always return true if p>=100 and false if p<=0
+	 * 
+	 * @param p A probability expressed in percent.
+	 * @return true of false randomly, as defined by p.
 	 */
 	public boolean prob(double p) {
 		if(p >= 100) return true;
