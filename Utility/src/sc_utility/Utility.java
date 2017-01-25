@@ -12,11 +12,15 @@ public class Utility {
 	
 	private Random rand = new Random();
 	
-	
+	/**
+	 * Given a probablility, returns a 
+	 * @param p
+	 * @return
+	 */
 	public boolean prob(double p) {
 		if(p >= 100) return true;
 		else if(p <= 0) return false;
-		int i = rand.nextInt(100) + 1;
+		double i = rand.nextDouble() * 100 + 1;
 		if(i > p) return false;
 		else return true;
 	}
