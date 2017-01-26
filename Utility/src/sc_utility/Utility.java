@@ -60,9 +60,9 @@ public class Utility {
 		return toReturn;
 	}
 	
-	public LinkedList file2list(File file) throws IOException {
+	public List<String> file2list(File file) throws IOException {
 		BufferedReader reader = new BufferedReader(new FileReader(file));
-		LinkedList toReturn = new LinkedList();
+		List<String> toReturn = new LinkedList<String>();
 		while(reader.ready()) {
 			toReturn.add(reader.readLine());
 		}
