@@ -60,6 +60,14 @@ public class Utility {
 		return toReturn;
 	}
 	
+	/**
+	 * Reads the lines from a file and stores them in a list.
+	 * Does not include line terminators.
+	 * 
+	 * @param file A file pointer to read from.
+	 * @return A list containing the lines from the file.
+	 * @throws IOException
+	 */
 	public List<String> file2list(File file) throws IOException {
 		BufferedReader reader = new BufferedReader(new FileReader(file));
 		List<String> toReturn = new LinkedList<String>();
