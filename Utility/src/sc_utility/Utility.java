@@ -10,27 +10,46 @@ import java.util.Random;
 
 public class Utility {
 	
-	private Random rand = new Random();
+	private static Random rand = new Random();
 	
-	public boolean prob(int p) {
+	/**
+	 * Randomly returns true with a given probability.
+	 * 
+	 * For example it you call it with an argument of <code>25.0</code> then it will return true 25% of the time.
+	 * Will always return true if p>=100 and false if p<=0
+	 * 
+	 * @param p A probability expressed in percent.
+	 * @return true of false randomly, as defined by p.
+	 */
+	public static boolean prob(double p) {
 		if(p >= 100) return true;
 		else if(p <= 0) return false;
-		int i = rand.nextInt(100) + 1;
+		double i = rand.nextDouble() * 100 + 1;
 		if(i > p) return false;
 		else return true;
 	}
 	
-	public Object pick(Object[] args) {
+	/**
+	 * Randomly selects an object from an array.
+	 * 
+	 * @param args an array to pick from.
+	 * @return a random element from args.
+	 */
+	public static Object pick(Object[] args) {
 		int i = rand.nextInt(args.length);
 		return args[i];
 	}
 	
-	public Object pick(List args) {
-		int i = rand.nextInt(args.size());
-		return args.get(i);
+	/**
+	 * Picks a random element from a list.
+	 * @param args A list to pick items from
+	 * @return an element from args.
+	 */
+	public static Object pick(List<Object> args) {
+		return pick(args.toArray());
 	}
 	
-	public String file2text(File file) throws IOException {
+	public static String file2text(File file) throws IOException {
 		BufferedReader reader = new BufferedReader(new FileReader(file));
 		String toReturn = "";
 		while(reader.ready()) {
@@ -41,9 +60,17 @@ public class Utility {
 		return toReturn;
 	}
 	
-	public LinkedList file2list(File file) throws IOException {
+	/**
+	 * Reads the lines from a file and stores them in a list.
+	 * Does not include line terminators.
+	 * 
+	 * @param file A file pointer to read from.
+	 * @return A list containing the lines from the file.
+	 * @throws IOException
+	 */
+	public static List<String> file2list(File file) throws IOException {
 		BufferedReader reader = new BufferedReader(new FileReader(file));
-		LinkedList toReturn = new LinkedList();
+		List<String> toReturn = new LinkedList<String>();
 		while(reader.ready()) {
 			toReturn.add(reader.readLine());
 		}
@@ -51,7 +78,7 @@ public class Utility {
 		return toReturn;
 	}
 	
-	public boolean sleep(long millis, int nanos) {
+	public static boolean sleep(long millis, int nanos) {
 		try {
 			Thread.sleep(millis, nanos);
 			return true;
@@ -65,7 +92,7 @@ public class Utility {
 	 * @param t The class to instantiate
 	 * @return a new instance of t
 	 */
-	public Object create(Class t) {
+	public static Object create(Class<?> t) {
 		try {
 			return t.newInstance();
 		} catch (Exception e) {
