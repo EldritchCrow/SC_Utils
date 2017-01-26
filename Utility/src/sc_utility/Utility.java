@@ -92,7 +92,7 @@ public class Utility {
 	 * @param t The class to instantiate
 	 * @return a new instance of t
 	 */
-	public static Object create(Class t) {
+	public static Object create(Class<?> t) {
 		try {
 			return t.newInstance();
 		} catch (Exception e) {
