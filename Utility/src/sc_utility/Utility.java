@@ -10,7 +10,7 @@ import java.util.Random;
 
 public class Utility {
 	
-	private Random rand = new Random();
+	private static Random rand = new Random();
 	
 	/**
 	 * Randomly returns true with a given probability.
@@ -21,7 +21,7 @@ public class Utility {
 	 * @param p A probability expressed in percent.
 	 * @return true of false randomly, as defined by p.
 	 */
-	public boolean prob(double p) {
+	public static boolean prob(double p) {
 		if(p >= 100) return true;
 		else if(p <= 0) return false;
 		double i = rand.nextDouble() * 100 + 1;
@@ -35,7 +35,7 @@ public class Utility {
 	 * @param args an array to pick from.
 	 * @return a random element from args.
 	 */
-	public Object pick(Object[] args) {
+	public static Object pick(Object[] args) {
 		int i = rand.nextInt(args.length);
 		return args[i];
 	}
@@ -45,11 +45,11 @@ public class Utility {
 	 * @param args A list to pick items from
 	 * @return an element from args.
 	 */
-	public Object pick(List<Object> args) {
+	public static Object pick(List<Object> args) {
 		return pick(args.toArray());
 	}
 	
-	public String file2text(File file) throws IOException {
+	public static String file2text(File file) throws IOException {
 		BufferedReader reader = new BufferedReader(new FileReader(file));
 		String toReturn = "";
 		while(reader.ready()) {
@@ -68,7 +68,7 @@ public class Utility {
 	 * @return A list containing the lines from the file.
 	 * @throws IOException
 	 */
-	public List<String> file2list(File file) throws IOException {
+	public static List<String> file2list(File file) throws IOException {
 		BufferedReader reader = new BufferedReader(new FileReader(file));
 		List<String> toReturn = new LinkedList<String>();
 		while(reader.ready()) {
@@ -78,7 +78,7 @@ public class Utility {
 		return toReturn;
 	}
 	
-	public boolean sleep(long millis, int nanos) {
+	public static boolean sleep(long millis, int nanos) {
 		try {
 			Thread.sleep(millis, nanos);
 			return true;
@@ -92,7 +92,7 @@ public class Utility {
 	 * @param t The class to instantiate
 	 * @return a new instance of t
 	 */
-	public Object create(Class t) {
+	public static Object create(Class t) {
 		try {
 			return t.newInstance();
 		} catch (Exception e) {
