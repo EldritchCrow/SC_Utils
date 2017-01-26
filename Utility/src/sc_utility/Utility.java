@@ -31,6 +31,7 @@ public class Utility {
 	
 	/**
 	 * Randomly selects an object from an array.
+	 * 
 	 * @param args an array to pick from.
 	 * @return a random element from args.
 	 */
@@ -39,9 +40,13 @@ public class Utility {
 		return args[i];
 	}
 	
-	public Object pick(List args) {
-		int i = rand.nextInt(args.size());
-		return args.get(i);
+	/**
+	 * Picks a random element from a list.
+	 * @param args A list to pick items from
+	 * @return an element from args.
+	 */
+	public Object pick(List<Object> args) {
+		return pick(args.toArray());
 	}
 	
 	public String file2text(File file) throws IOException {
